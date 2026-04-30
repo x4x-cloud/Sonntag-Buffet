@@ -3,652 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Naya Jouly | نايا جولي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cairo:wght@300;400;600;700&display=swap');
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+--gold:#C9A84C;
+--gold-light:#F0D080;
+--black:#0A0A0A;
+--cream:#FDF6E3;
+}
 
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D080;
-    --gold-dark: #8B6914;
-    --black: #0A0A0A;
-    --black-soft: #111111;
-    --black-card: #161616;
-    --black-border: #2A2208;
-    --cream: #FDF6E3;
-    --text-muted: #9A8860;
-  }
+body{
+background:var(--black);
+color:var(--cream);
+font-family:'Cairo',sans-serif;
+margin:0;
+}
 
-  body {
-    background: var(--black);
-    color: var(--cream);
-    font-family: 'Cairo', sans-serif;
-    overflow-x: hidden;
-  }
+/* LANG BUTTON */
+.lang-toggle{
+position:fixed;
+top:20px;
+left:20px;
+z-index:999;
+}
+.lang-toggle button{
+background:var(--gold);
+border:none;
+margin:2px;
+padding:6px 12px;
+cursor:pointer;
+font-weight:bold;
+}
 
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 20px 40px;
-    overflow: hidden;
-  }
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,168,76,0.08) 0%, transparent 50%);
-    pointer-events: none;
-  }
+.logo{
+width:150px;
+height:150px;
+border-radius:50%;
+border:3px solid var(--gold);
+box-shadow:0 10px 40px rgba(201,168,76,.4);
+margin-bottom:20px;
+}
 
-  .ornament-top {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-  }
+.restaurant-name{
+font-family:'Playfair Display';
+font-size:28px;
+color:var(--gold-light);
+letter-spacing:3px;
+margin-bottom:10px;
+}
 
-  .badge-offer {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
-    color: var(--black);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 8px 24px;
-    border-radius: 2px;
-    margin-bottom: 28px;
-    animation: pulse-gold 2s ease-in-out infinite;
-    font-family: 'Cairo', sans-serif;
-  }
+.hero-title{
+font-size:50px;
+margin:10px 0;
+}
 
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
-    50% { box-shadow: 0 0 20px 8px rgba(201,168,76,0.15); }
-  }
+.buffet-time{
+color:var(--gold-light);
+margin-bottom:20px;
+}
 
-  .hero-tag {
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    font-weight: 300;
-  }
+.map-btn{
+display:inline-block;
+margin-top:10px;
+border:1px solid var(--gold);
+padding:10px 20px;
+color:var(--gold-light);
+text-decoration:none;
+}
 
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 8vw, 80px);
-    font-weight: 900;
-    line-height: 1.05;
-    background: linear-gradient(160deg, var(--gold-light) 0%, var(--gold) 40%, var(--cream) 60%, var(--gold) 80%, var(--gold-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 2px 20px rgba(201,168,76,0.3));
-  }
+/* CHEF */
+.chef-section{
+text-align:center;
+padding:60px 20px;
+}
+.chef-img{
+width:180px;
+height:180px;
+border-radius:50%;
+border:3px solid var(--gold);
+object-fit:cover;
+}
 
-  .hero-subtitle {
-    font-size: 16px;
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    font-weight: 300;
-    letter-spacing: 1px;
-  }
+/* FORM */
+.booking{
+max-width:500px;
+margin:40px auto;
+}
 
-  .price-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
+input,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+background:#111;
+border:1px solid var(--gold);
+color:white;
+}
 
-  .price-old {
-    position: relative;
-    font-size: 28px;
-    color: #555;
-    font-weight: 300;
-    font-family: 'Playfair Display', serif;
-  }
-  .price-old::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0; right: 0;
-    height: 2px;
-    background: #E24B4A;
-    transform: rotate(-8deg);
-  }
+button{
+width:100%;
+padding:15px;
+background:var(--gold);
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
 
-  .price-new {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
-    font-weight: 900;
-    color: var(--gold-light);
-    line-height: 1;
-    filter: drop-shadow(0 0 20px rgba(240,208,128,0.4));
-  }
-
-  .price-currency {
-    font-size: 28px;
-    vertical-align: super;
-    color: var(--gold);
-  }
-
-  .price-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: -8px;
-  }
-
-  .divider-gold {
-    width: 120px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 0 auto 40px;
-  }
-
-  /* DAY + FEATURES */
-  .hero-features {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-  }
-
-  .feature-pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 40px;
-    padding: 8px 20px;
-    font-size: 13px;
-    color: var(--gold-light);
-    font-weight: 400;
-  }
-
-  .feature-dot {
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* MENU SECTION */
-  .section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    font-weight: 300;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--gold-light);
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  /* MENU CATEGORIES */
-  .menu-category {
-    margin-bottom: 48px;
-  }
-
-  .cat-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .cat-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3));
-  }
-  .cat-line.right {
-    background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
-  }
-
-  .cat-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: var(--gold);
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .menu-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--black-card);
-    border: 1px solid rgba(201,168,76,0.1);
-    border-radius: 6px;
-    padding: 12px 16px;
-    transition: all 0.3s ease;
-  }
-
-  .menu-item:hover {
-    border-color: rgba(201,168,76,0.35);
-    background: rgba(201,168,76,0.05);
-    transform: translateY(-1px);
-  }
-
-  .menu-dot {
-    width: 5px; height: 5px;
-    background: var(--gold);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .menu-item-name {
-    font-size: 13px;
-    color: var(--cream);
-    font-weight: 400;
-  }
-
-  /* DESSERT special */
-  .menu-grid.dessert {
-    grid-template-columns: 1fr;
-  }
-
-  /* BOOKING SECTION */
-  .booking-section {
-    background: var(--black-card);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 12px;
-    padding: 40px 28px;
-    margin: 0 20px 60px;
-    max-width: 860px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .booking-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-  }
-
-  .booking-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: var(--gold-light);
-    text-align: center;
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-
-  .booking-sub {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 13px;
-    margin-bottom: 32px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-group.full {
-    grid-column: 1 / -1;
-  }
-
-  .form-label {
-    font-size: 11px;
-    color: var(--gold);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .form-input {
-    background: rgba(201,168,76,0.05);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 6px;
-    padding: 12px 14px;
-    color: var(--cream);
-    font-family: 'Cairo', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: all 0.3s;
-    width: 100%;
-    direction: rtl;
-  }
-
-  .form-input:focus {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.08);
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
-  }
-
-  select.form-input option {
-    background: var(--black-card);
-    color: var(--cream);
-  }
-
-  .btn-reserve {
-    width: 100%;
-    margin-top: 20px;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
-    border: none;
-    border-radius: 6px;
-    padding: 16px;
-    color: var(--black);
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .btn-reserve:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(201,168,76,0.35);
-    filter: brightness(1.1);
-  }
-
-  .btn-reserve:active {
-    transform: translateY(0);
-  }
-
-  .wa-icon {
-    width: 22px; height: 22px;
-    fill: var(--black);
-  }
-
-  /* FOOTER */
-  .footer-ornament {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid rgba(201,168,76,0.1);
-  }
-
-  .footer-ornament p {
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 2px;
-  }
-
-  /* Decorative Islamic pattern */
-  .pattern-bg {
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image:
-      repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
-      repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
-    background-size: 20px 20px;
-    pointer-events: none;
-  }
-
-  /* Animated shimmer on price */
-  @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-
-  .shimmer {
-    background: linear-gradient(90deg, var(--gold-light) 0%, #fff8e7 40%, var(--gold-light) 60%, var(--gold) 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 3s linear infinite;
-  }
-
-  @media (max-width: 500px) {
-    .menu-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-features { gap: 10px; }
-    .feature-pill { font-size: 11px; padding: 7px 14px; }
-  }
 </style>
 </head>
+
 <body>
+
+<!-- LANG -->
+<div class="lang-toggle">
+<button onclick="setLang('ar')">AR</button>
+<button onclick="setLang('de')">DE</button>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="ornament-top"></div>
-  <div class="pattern-bg"></div>
 
-  <div class="badge-offer">🌟 عرض خاص محدود الوقت 🌟</div>
+<img src="logo.png" class="logo">
 
-  <p class="hero-tag">بوفيه مفتوح · يوم الأحد فقط</p>
+<h2 class="restaurant-name" data-ar="نايا جولي" data-de="Naya Jouly">نايا جولي</h2>
 
-  <h1 class="hero-title">بوفيه الأحد<br>الملكي</h1>
+<h1 class="hero-title" data-ar="بوفيه الأحد الملكي" data-de="Royaler Sonntagsbuffet">
+بوفيه الأحد الملكي
+</h1>
 
-  <p class="hero-subtitle">تشكيلة فاخرة من أشهى المأكولات الشرقية والغربية</p>
+<p class="buffet-time"
+data-ar="البوفيه يبدأ من الساعة 1:00 حتى 8:00 مساءً"
+data-de="Buffet von 13:00 bis 20:00 Uhr">
+</p>
 
-  <div class="price-block">
-    <div style="text-align:center">
-      <div class="price-old">25€</div>
-    </div>
-    <div style="text-align:center">
-      <div class="price-new shimmer"><span class="price-currency">€</span>20</div>
-      <div class="price-label">للشخص الواحد</div>
-    </div>
-  </div>
+<a href="https://maps.app.goo.gl/HFsHWcYLXKaFXkN88" target="_blank" class="map-btn">
+📍 Google Maps
+</a>
 
-  <div class="divider-gold"></div>
-
-  <div class="hero-features">
-    <div class="feature-pill"><span class="feature-dot"></span>كل الأصناف مشمولة</div>
-    <div class="feature-pill"><span class="feature-dot"></span>يوم الأحد فقط</div>
-    <div class="feature-pill"><span class="feature-dot"></span>احجز مقعدك الآن</div>
-  </div>
 </section>
 
-<!-- MENU -->
-<div class="section">
-  <div class="section-header">
-    <p class="section-label">القائمة الكاملة</p>
-    <h2 class="section-title">مائدة البوفيه</h2>
-    <div class="divider-gold"></div>
-  </div>
+<!-- CHEF -->
+<div class="chef-section">
 
-  <!-- Starters -->
-  <div class="menu-category">
-    <div class="cat-header">
-      <div class="cat-line"></div>
-      <span class="cat-title">✦ المقبّلات ✦</span>
-      <div class="cat-line right"></div>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">حمص بالطحينة</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">متبل باذنجان</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">بابا غنوج</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">محمرة بالجوز</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">فتوش</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">بوريك ميكس</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">سلطة شمندر</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">مني مناقيش مشكلة</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">قريدس مقرمش</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">مخللات خضار</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">يالنجي بالزيت</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">سلطة خيار باللبن</span></div>
-    </div>
-  </div>
+<img src="chef.jpg" class="chef-img">
 
-  <!-- Hot -->
-  <div class="menu-category">
-    <div class="cat-header">
-      <div class="cat-line"></div>
-      <span class="cat-title">✦ الأكل السخن ✦</span>
-      <div class="cat-line right"></div>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">محاشي باذنجان وكوسا</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">فخاد دجاج بالبطاطا</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">كباب هندي</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">ستيك دجاج ماشروم صوص</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">فريكة بالدجاج</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">مندي باللحم</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">يبرء باللحم</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">ناقيتس وبومس</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">ملوخية بالدجاج</span></div>
-    </div>
-  </div>
+<h3 data-ar="الشيف عبود" data-de="Chef Abboud">الشيف عبود</h3>
 
-  <!-- Dessert -->
-  <div class="menu-category">
-    <div class="cat-header">
-      <div class="cat-line"></div>
-      <span class="cat-title">✦ التحلية ✦</span>
-      <div class="cat-line right"></div>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">حلو مشكّل</span></div>
-      <div class="menu-item"><span class="menu-dot"></span><span class="menu-item-name">فواكه مشكّلة</span></div>
-    </div>
-  </div>
+<p
+data-ar="الشيف عبود يحوّل كل وجبة إلى رحلة فاخرة في عالم النكهات العربية والشرقية. من الفتوش والتبولة إلى المشاوي والحلويات، كل طبق يحمل لمسته الخاصة واهتمامه بأدق التفاصيل."
+data-de="Chef Abboud macht jedes Gericht zu einer unvergesslichen Reise durch die arabische und orientalische Küche.">
+</p>
+
 </div>
 
-<!-- BOOKING -->
-<div class="booking-section">
-  <h2 class="booking-title">احجز طاولتك الآن</h2>
-  <p class="booking-sub">أدخل بياناتك وسيُفتح واتساب تلقائياً برسالة حجزك</p>
+<!-- FORM -->
+<div class="booking">
 
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label">الاسم الكريم</label>
-      <input class="form-input" id="name" type="text" placeholder="محمد أحمد" />
-    </div>
-    <div class="form-group">
-      <label class="form-label">عدد الأشخاص</label>
-      <select class="form-input" id="guests">
-        <option value="">اختر...</option>
-        <option value="1">١ شخص</option>
-        <option value="2">٢ أشخاص</option>
-        <option value="3">٣ أشخاص</option>
-        <option value="4">٤ أشخاص</option>
-        <option value="5">٥ أشخاص</option>
-        <option value="6">٦ أشخاص</option>
-        <option value="7">٧ أشخاص</option>
-        <option value="8">٨+ أشخاص</option>
-      </select>
-    </div>
-  </div>
+<input id="name" placeholder="الاسم / Name">
 
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label">وقت الوصول</label>
-      <select class="form-input" id="time">
-        <option value="">اختر الوقت...</option>
-        <option value="12:00">12:00 ظهراً</option>
-        <option value="12:30">12:30</option>
-        <option value="13:00">01:00 م</option>
-        <option value="13:30">01:30 م</option>
-        <option value="14:00">02:00 م</option>
-        <option value="14:30">02:30 م</option>
-        <option value="15:00">03:00 م</option>
-        <option value="15:30">03:30 م</option>
-        <option value="16:00">04:00 م</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="form-label">ملاحظات (اختياري)</label>
-      <input class="form-input" id="notes" type="text" placeholder="أي تفاصيل إضافية..." />
-    </div>
-  </div>
+<select id="guests">
+<option value="">عدد الأشخاص</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8+</option>
+</select>
 
-  <button class="btn-reserve" onclick="sendToWhatsApp()">
-    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-    تأكيد الحجز عبر واتساب
-  </button>
-</div>
+<select id="time">
+<option value="">وقت الوصول</option>
+<option>12:30</option>
+<option>13:00</option>
+<option>14:00</option>
+<option>15:00</option>
+<option>16:00</option>
+<option>17:00</option>
+<option>18:00</option>
+<option>19:00</option>
+</select>
 
-<!-- FOOTER -->
-<div class="footer-ornament">
-  <div class="divider-gold" style="margin-bottom:20px"></div>
-  <p>✦ &nbsp; بوفيه الأحد · عرض لفترة محدودة · 20€ للشخص &nbsp; ✦</p>
+<button onclick="send()">احجز عبر واتساب</button>
+
 </div>
 
 <script>
-  function sendToWhatsApp() {
-    const name = document.getElementById('name').value.trim();
-    const guests = document.getElementById('guests').value;
-    const time = document.getElementById('time').value;
-    const notes = document.getElementById('notes').value.trim();
 
-    if (!name) { alert('الرجاء إدخال الاسم'); return; }
-    if (!guests) { alert('الرجاء اختيار عدد الأشخاص'); return; }
-    if (!time) { alert('الرجاء اختيار وقت الوصول'); return; }
+function setLang(lang){
+document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-    const total = parseInt(guests) * 20;
-    const msg =
-      `مرحباً، أودّ حجز طاولة في بوفيه يوم الأحد 🍽️\n\n` +
-      `👤 الاسم: ${name}\n` +
-      `👥 عدد الأشخاص: ${guests}\n` +
-      `⏰ وقت الوصول: ${time}\n` +
-      `💰 الإجمالي: ${guests} × 20€ = ${total}€` +
-      (notes ? `\n📝 ملاحظات: ${notes}` : '') +
-      `\n\nشكراً! 🌟`;
+document.querySelectorAll('[data-ar]').forEach(el=>{
+el.innerText = el.getAttribute('data-'+lang);
+});
+}
 
-    // Replace with actual restaurant WhatsApp number
-    const phone = '491234567890';
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-  }
+function send(){
+let name=document.getElementById('name').value;
+let guests=document.getElementById('guests').value;
+let time=document.getElementById('time').value;
+
+let msg=`حجز طاولة
+الاسم: ${name}
+عدد: ${guests}
+وقت: ${time}`;
+
+window.open(`https://wa.me/491234567890?text=${encodeURIComponent(msg)}`);
+}
+
 </script>
+
 </body>
 </html>
