@@ -554,7 +554,7 @@ function bookWhatsApp() {
   const total = parseInt(count) * 20;
   if (!name) { alert(currentLang === 'ar' ? 'الرجاء إدخال اسمك' : 'Bitte geben Sie Ihren Namen ein'); return; }
   const msg = currentLang === 'ar'
-    ? `*حجز جديد - نايا جولي*\n\nالاسم: ${name}\nعدد الأشخاص: ${count}\nوقت الوصول: ${time}\nالحساب: ${total} يورو\n\nشكراً لاختياركم نايا جولي`
+    ? `*حجز جديد - نايا جولي*\n\nالاسم: ${name}\nعدد الأشخاص: ${count}\nوقت الوصول: ${time}\nالحساب: ${total} يورو\n\n`
     : `*Neue Reservierung - Naya Jouly*\n\nName: ${name}\nPersonen: ${count}\nAnkunftszeit: ${time}\nGesamtbetrag: ${total} Euro\n\nVielen Dank fuer Ihre Reservierung`;
   fbq('track', 'Contact');
 window.open('https://wa.me/4917620666501?text=' + encodeURIComponent(msg), '_blank');
