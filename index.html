@@ -2,7 +2,6 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta name="facebook-domain-verification" content="gegyjzpa0ohahbl95t658o88kcuvsm" />
-<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,16 +11,10 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-
 fbq('init', '1187207645847305');
 fbq('track', 'PageView');
 </script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1187207645847305&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1187207645847305&ev=PageView&noscript=1"/></noscript>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,20 +72,18 @@ nav {
 .hero-beam { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 40%; background: linear-gradient(180deg,rgba(201,168,76,.5),transparent); pointer-events: none; }
 .hero-beam::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(ellipse,rgba(201,168,76,.16) 0%,transparent 70%); border-radius: 50%; }
 
-/* Logo */
 .logo-wrap { position: relative; margin-bottom: 36px; }
 .logo-outer-ring {
-  width: 400px; height: 400px; border-radius: 50%;
+  width: 200px; height: 200px; border-radius: 50%;
   padding: 4px;
   background: conic-gradient(var(--gold-bright) 0deg,var(--gold-dark) 60deg,var(--gold-bright) 120deg,var(--gold-deep) 180deg,var(--gold-bright) 240deg,var(--gold-dark) 300deg,var(--gold-bright) 360deg);
-  
+  animation: spinRing 18s linear infinite;
   box-shadow: 0 0 60px rgba(201,168,76,.3), 0 0 120px rgba(201,168,76,.12), 0 0 200px rgba(201,168,76,.07);
 }
 @keyframes spinRing { to { transform: rotate(360deg); } }
 .logo-mid { width: 100%; height: 100%; border-radius: 50%; background: var(--black-rich); display: flex; align-items: center; justify-content: center; position: relative; }
-.logo-mid::before { content: ''; position: absolute; inset: 14px; border-radius: 50%; border: 1px solid rgba(201,168,76,.15); }
-.logo-mid::after  { content: ''; position: absolute; inset: 26px; border-radius: 50%; border: 1px solid rgba(201,168,76,.07); }
-.logo-img { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg,var(--gold-deep),#1a1408); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 80px; color: var(--gold); font-style: italic; position: relative; z-index: 2; }
+.logo-mid::before { content: ''; position: absolute; inset: 8px; border-radius: 50%; border: 1px solid rgba(201,168,76,.15); }
+.logo-img { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg,var(--gold-deep),#1a1408); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 50px; color: var(--gold); font-style: italic; position: relative; z-index: 2; }
 .logo-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .logo-diamonds { position: absolute; inset: -16px; pointer-events: none; }
 .logo-diamonds::before,.logo-diamonds::after { content: '◆'; position: absolute; color: var(--gold); font-size: 10px; top: 50%; transform: translateY(-50%); animation: fadeGlow 2.5s ease infinite alternate; }
@@ -162,60 +153,124 @@ section { position: relative; z-index: 1; padding: 88px 24px; }
 .sec-orn-gem { color: var(--gold); font-size: 12px; letter-spacing: 6px; }
 .deco-dots { text-align: center; font-size: 11px; color: var(--gold); opacity: .22; letter-spacing: 8px; margin-bottom: 12px; }
 
-/* MENU */
+/* ===== NEW MENU LAYOUT ===== */
 .menu-section { background: rgba(0,0,0,.25); }
-.menu-cat-hd { text-align: center; font-family: var(--font-display); font-size: 22px; font-style: italic; color: var(--gold-light); margin: 44px 0 24px; display: flex; align-items: center; justify-content: center; gap: 16px; }
-.mch-line { width: 50px; height: 1px; background: linear-gradient(90deg,transparent,rgba(201,168,76,.4)); }
+
+/* Category header */
+.menu-cat-hd {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gold-light);
+  margin: 56px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.mch-line { width: 60px; height: 1px; background: linear-gradient(90deg,transparent,rgba(201,168,76,.4)); }
 [dir="rtl"] .mch-line:last-child { background: linear-gradient(90deg,rgba(201,168,76,.4),transparent); }
 [dir="ltr"] .mch-line:first-child { background: linear-gradient(90deg,rgba(201,168,76,.4),transparent); }
 
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); gap: 14px; max-width: 980px; margin: 0 auto; }
+/* Category badge icon */
+.cat-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(201,168,76,.12), rgba(201,168,76,.04));
+  border: 1px solid rgba(201,168,76,.25);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 4px;
+  box-shadow: 0 0 20px rgba(201,168,76,.08);
+}
+
+/* Menu grid — 3 column on desktop, 2 on tablet */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
 
 /* LUXURY CARD */
 .mc {
   position: relative;
   background: var(--black-card);
-  border-radius: 18px;
-  padding: 24px 20px;
+  border-radius: 16px;
+  padding: 20px 18px 20px 52px;
   overflow: hidden;
   cursor: default;
   transition: transform .45s cubic-bezier(.23,1,.32,1), box-shadow .45s cubic-bezier(.23,1,.32,1);
-  box-shadow: inset 0 0 0 1px rgba(201,168,76,.12), 0 2px 20px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 0 1px rgba(201,168,76,.1), 0 2px 18px rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+[dir="rtl"] .mc { padding: 20px 52px 20px 18px; }
+
+/* number badge */
+.mc-num {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(201,168,76,.35);
+  line-height: 1;
+  transition: color .3s;
+  user-select: none;
+}
+[dir="rtl"] .mc-num { left: auto; right: 16px; }
+
 /* shimmer sweep */
 .mc::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(115deg,transparent 20%,rgba(201,168,76,.07) 40%,rgba(255,240,180,.13) 50%,rgba(201,168,76,.07) 60%,transparent 80%);
+  background: linear-gradient(115deg,transparent 20%,rgba(201,168,76,.06) 40%,rgba(255,240,180,.11) 50%,rgba(201,168,76,.06) 60%,transparent 80%);
   background-size: 200% 100%;
   background-position: -100% 0;
   transition: background-position 0s;
-  border-radius: 18px;
+  border-radius: 16px;
 }
 /* top accent */
-.mc::after { content: ''; position: absolute; top: 0; left: 15%; right: 15%; height: 1.5px; background: linear-gradient(90deg,transparent,var(--gold-light),transparent); opacity: 0; transition: opacity .4s; border-radius: 2px; }
-.mc:hover { transform: translateY(-7px) scale(1.015); box-shadow: inset 0 0 0 1px rgba(201,168,76,.38), 0 10px 45px rgba(0,0,0,.6), 0 0 35px rgba(201,168,76,.13), 0 0 70px rgba(201,168,76,.06); }
+.mc::after { content: ''; position: absolute; top: 0; left: 15%; right: 15%; height: 1px; background: linear-gradient(90deg,transparent,var(--gold-light),transparent); opacity: 0; transition: opacity .4s; }
+.mc:hover { transform: translateY(-5px) scale(1.012); box-shadow: inset 0 0 0 1px rgba(201,168,76,.32), 0 10px 40px rgba(0,0,0,.55), 0 0 30px rgba(201,168,76,.1); }
 .mc:hover::before { background-position: 150% 0; transition: background-position .9s ease; }
 .mc:hover::after  { opacity: 1; }
-
-/* corner gems */
-.mc-gem { position: absolute; font-size: 8px; color: rgba(201,168,76,.22); transition: color .4s; }
-.mc-gem-tl { top: 8px; left: 8px; }
-.mc-gem-br { bottom: 8px; right: 8px; }
-[dir="rtl"] .mc-gem-tl { left: auto; right: 8px; }
-[dir="rtl"] .mc-gem-br { right: auto; left: 8px; }
-.mc:hover .mc-gem { color: rgba(201,168,76,.58); }
-
-/* inner glow */
-.mc-glow { position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle,rgba(201,168,76,.08),transparent 70%); pointer-events: none; transition: all .4s; }
-[dir="rtl"] .mc-glow { right: auto; left: -20px; }
-.mc:hover .mc-glow { width: 130px; height: 130px; background: radial-gradient(circle,rgba(201,168,76,.17),transparent 70%); }
+.mc:hover .mc-num { color: rgba(201,168,76,.65); }
 
 /* card name */
-.mc-name { font-size: 15px; font-weight: 700; color: var(--cream); line-height: 1.4; transition: color .3s; position: relative; }
+.mc-name { font-size: 14px; font-weight: 600; color: var(--cream); line-height: 1.45; transition: color .3s; position: relative; flex: 1; }
 .mc:hover .mc-name { color: var(--gold-pale); }
-.mc-name::after { content: ''; display: block; width: 0; height: 1px; background: linear-gradient(90deg,var(--gold),transparent); margin-top: 8px; transition: width .4s ease; }
-.mc:hover .mc-name::after { width: 55%; }
+
+/* left accent bar */
+.mc-bar {
+  position: absolute;
+  top: 20%; bottom: 20%;
+  left: 38px;
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, rgba(201,168,76,.3), transparent);
+  border-radius: 2px;
+  transition: background .3s;
+}
+[dir="rtl"] .mc-bar { left: auto; right: 38px; }
+.mc:hover .mc-bar { background: linear-gradient(180deg, transparent, rgba(201,168,76,.7), transparent); }
+
+/* Soup cards — special glow tint */
+.mc.soup-card { box-shadow: inset 0 0 0 1px rgba(201,168,76,.1), 0 2px 18px rgba(0,0,0,.45), inset 0 0 40px rgba(201,168,76,.02); }
+.mc.soup-card:hover { box-shadow: inset 0 0 0 1px rgba(201,168,76,.32), 0 10px 40px rgba(0,0,0,.55), 0 0 30px rgba(201,168,76,.1), inset 0 0 50px rgba(201,168,76,.04); }
+
+/* Dessert grid */
+.menu-grid-dessert {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 460px;
+  margin: 0 auto;
+}
 
 /* CHEF */
 .chef-outer { max-width: 920px; margin: 0 auto; }
@@ -275,7 +330,7 @@ footer::before { content:''; position:absolute; top:0; left:20%; right:20%; heig
 @media(max-width:640px){
   nav{padding:12px 16px;}
   .logo-outer-ring{width:160px;height:160px;}
-  .logo-img{width:210px;height:210px;font-size:60px;}
+  .logo-img{width:110px;height:110px;font-size:40px;}
   .hero{padding:100px 16px 70px;}
   .chef-card{grid-template-columns:1fr;padding:32px 22px;gap:28px;text-align:center;}
   .chef-rings{width:160px;height:160px;margin:0 auto;}
@@ -289,7 +344,7 @@ footer::before { content:''; position:absolute; top:0; left:20%; right:20%; heig
   [dir="rtl"] .price-badge-new{left:auto;right:-56px;}
   [dir="ltr"] .price-badge-new{right:auto;left:-56px;}
 }
-@media(max-width:360px){.menu-grid{grid-template-columns:1fr;}}
+@media(max-width:400px){.menu-grid{grid-template-columns:1fr;} .menu-grid-dessert{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -378,8 +433,8 @@ footer::before { content:''; position:absolute; top:0; left:20%; right:20%; heig
 <!-- MENU -->
 <section class="menu-section" id="menu">
   <div class="deco-dots">◆ ◆ ◆</div>
-  <p class="sec-eye" data-ar="مختارات الشيف" data-de="Auswahl des Chefs">مختارات الشيف</p>
-  <h2 class="sec-title" data-ar="قائمة الطعام" data-de="Speisekarte">قائمة الطعام</h2>
+  <p class="sec-eye" data-ar="مختارات الشيف لهذا الأحد" data-de="Auswahl des Chefs für diesen Sonntag">مختارات الشيف لهذا الأحد</p>
+  <h2 class="sec-title" data-ar="قائمة البوفيه" data-de="Büfett-Speisekarte">قائمة البوفيه</h2>
   <div class="sec-orn">
     <div class="sec-orn-line"></div>
     <div class="sec-orn-gem">✦</div>
@@ -387,54 +442,70 @@ footer::before { content:''; position:absolute; top:0; left:20%; right:20%; heig
   </div>
 
   <!-- STARTERS -->
-  <div class="menu-cat-hd">
+  <div class="menu-cat-hd fade-up">
     <div class="mch-line"></div>
-    <span data-ar="المقبلات" data-de="Vorspeisen">المقبلات</span>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div class="cat-icon">🥗</div>
+      <span data-ar="المقبلات والشوربات" data-de="Vorspeisen & Suppen">المقبلات والشوربات</span>
+    </div>
     <div class="mch-line"></div>
   </div>
+
   <div class="menu-grid">
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="حمص بالطحينة" data-de="Hummus Tahini">حمص بالطحينة</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="متبل باذنجان" data-de="Mutabbal Aubergine">متبل باذنجان</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="بابا غنوج" data-de="Baba Ghanouj">بابا غنوج</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="محمرة بالجوز" data-de="Muhammara mit Walnüssen">محمرة بالجوز</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="فتوش" data-de="Fattoush">فتوش</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="بوريك ميكس" data-de="Börek Mix">بوريك ميكس</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="سلطة شمندر" data-de="Rote-Bete-Salat">سلطة شمندر</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="مكس مني مناقيش" data-de="Mini Manakish Mix">مكس مني مناقيش</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="قريدس مقرمش" data-de="Knuspergarnelen">قريدس مقرمش</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="مكس مخللات خضار" data-de="Gemischte Pickles">مكس مخللات خضار</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="يالنجي بالزيت" data-de="Yalancı mit Olivenöl">يالنجي بالزيت</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="سلطة خيار باللبن" data-de="Gurken-Joghurt-Salat">سلطة خيار باللبن</div></div>
+    <div class="mc fade-up"><div class="mc-num">01</div><div class="mc-bar"></div><div class="mc-name" data-ar="حمص بالطحينة" data-de="Hummus Tahini">حمص بالطحينة</div></div>
+    <div class="mc fade-up"><div class="mc-num">02</div><div class="mc-bar"></div><div class="mc-name" data-ar="متبل باذنجان" data-de="Mutabbal Aubergine">متبل باذنجان</div></div>
+    <div class="mc fade-up"><div class="mc-num">03</div><div class="mc-bar"></div><div class="mc-name" data-ar="محمرة بالمكسرات" data-de="Muhammara mit Nüssen">محمرة بالمكسرات</div></div>
+    <div class="mc fade-up"><div class="mc-num">04</div><div class="mc-bar"></div><div class="mc-name" data-ar="بابا غنوج" data-de="Baba Ghanouj">بابا غنوج</div></div>
+    <div class="mc fade-up"><div class="mc-num">05</div><div class="mc-bar"></div><div class="mc-name" data-ar="سلطة خيار باللبن" data-de="Gurken-Joghurt-Salat">سلطة خيار باللبن</div></div>
+    <div class="mc fade-up"><div class="mc-num">06</div><div class="mc-bar"></div><div class="mc-name" data-ar="سلطة فتوش" data-de="Fattoush-Salat">سلطة فتوش</div></div>
+    <div class="mc fade-up"><div class="mc-num">07</div><div class="mc-bar"></div><div class="mc-name" data-ar="سلطة شمندر بالجبنة" data-de="Rote-Bete-Salat mit Käse">سلطة شمندر بالجبنة</div></div>
+    <div class="mc fade-up"><div class="mc-num">08</div><div class="mc-bar"></div><div class="mc-name" data-ar="ميكس بوريك" data-de="Börek-Mix">ميكس بوريك</div></div>
+    <div class="mc fade-up"><div class="mc-num">09</div><div class="mc-bar"></div><div class="mc-name" data-ar="ميكس ميني مناقيش" data-de="Mini Manakish Mix">ميكس ميني مناقيش</div></div>
+    <div class="mc fade-up"><div class="mc-num">10</div><div class="mc-bar"></div><div class="mc-name" data-ar="خضار مشكل" data-de="Gemischtes Gemüse">خضار مشكل</div></div>
+    <div class="mc fade-up"><div class="mc-num">11</div><div class="mc-bar"></div><div class="mc-name" data-ar="سمبوسك خضار" data-de="Gemüse-Samosa">سمبوسك خضار</div></div>
+    <div class="mc fade-up"><div class="mc-num">12</div><div class="mc-bar"></div><div class="mc-name" data-ar="قريدس مقرمش" data-de="Knuspergarnelen">قريدس مقرمش</div></div>
+    <div class="mc soup-card fade-up"><div class="mc-num">13</div><div class="mc-bar"></div><div class="mc-name" data-ar="سلطة الكسكسي" data-de="Couscous-Salat">سلطة الكسكسي</div></div>
+    <div class="mc soup-card fade-up"><div class="mc-num">14</div><div class="mc-bar"></div><div class="mc-name" data-ar="شوربة العدس" data-de="Linsensuppe">شوربة العدس</div></div>
+    <div class="mc soup-card fade-up"><div class="mc-num">15</div><div class="mc-bar"></div><div class="mc-name" data-ar="شوربة البطاطا" data-de="Kartoffelsuppe">شوربة البطاطا</div></div>
   </div>
 
   <!-- HOT -->
-  <div class="menu-cat-hd">
+  <div class="menu-cat-hd fade-up">
     <div class="mch-line"></div>
-    <span data-ar="الأكل السخن" data-de="Warme Gerichte">الأكل السخن</span>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div class="cat-icon">🔥</div>
+      <span data-ar="الأطباق الساخنة" data-de="Warme Hauptgerichte">الأطباق الساخنة</span>
+    </div>
     <div class="mch-line"></div>
   </div>
+
   <div class="menu-grid">
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="محاشي باذنجان وكوسا" data-de="Gefüllte Aubergine & Zucchini">محاشي باذنجان وكوسا</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="فخاد دجاج وبطاطا بالفرن" data-de="Hähnchenschenkel mit Ofenkartoffeln">فخاد دجاج وبطاطا بالفرن</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="كباب هندي" data-de="Indischer Kebab">كباب هندي</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="ستيك دجاج مع ماشروم صوص" data-de="Hähnchensteak mit Champignonsoße">ستيك دجاج مع ماشروم صوص</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="فريكة بالدجاج" data-de="Freekeh mit Hähnchen">فريكة بالدجاج</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="مندي باللحم" data-de="Mandi mit Fleisch">مندي باللحم</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="يبرء باللحم" data-de="Yabrak mit Fleisch">يبرء باللحم</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="ناقيتس وبومس" data-de="Nuggets & Poms">ناقيتس وبومس</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="ملوخية بالدجاج" data-de="Molokhia mit Hähnchen">ملوخية بالدجاج</div></div>
+    <div class="mc fade-up"><div class="mc-num">01</div><div class="mc-bar"></div><div class="mc-name" data-ar="مندي" data-de="Mandi">مندي</div></div>
+    <div class="mc fade-up"><div class="mc-num">02</div><div class="mc-bar"></div><div class="mc-name" data-ar="فريكة باللحم" data-de="Freekeh mit Fleisch">فريكة باللحم</div></div>
+    <div class="mc fade-up"><div class="mc-num">03</div><div class="mc-bar"></div><div class="mc-name" data-ar="كباب هندي" data-de="Indischer Kebab">كباب هندي</div></div>
+    <div class="mc fade-up"><div class="mc-num">04</div><div class="mc-bar"></div><div class="mc-name" data-ar="فؤاد وبطاطا بالفرن" data-de="Hähnchenschenkel mit Ofenkartoffeln">فؤاد وبطاطا بالفرن</div></div>
+    <div class="mc fade-up"><div class="mc-num">05</div><div class="mc-bar"></div><div class="mc-name" data-ar="ملوخية الدجاج" data-de="Molokhia mit Hähnchen">ملوخية الدجاج</div></div>
+    <div class="mc fade-up"><div class="mc-num">06</div><div class="mc-bar"></div><div class="mc-name" data-ar="يبرق باللحم" data-de="Yabrak mit Fleisch">يبرق باللحم</div></div>
+    <div class="mc fade-up"><div class="mc-num">07</div><div class="mc-bar"></div><div class="mc-name" data-ar="شيخ المحشي" data-de="Sheikh al-Mahshi">شيخ المحشي</div></div>
+    <div class="mc fade-up"><div class="mc-num">08</div><div class="mc-bar"></div><div class="mc-name" data-ar="شيش طاووق" data-de="Shish Tawook">شيش طاووق</div></div>
+    <div class="mc fade-up"><div class="mc-num">09</div><div class="mc-bar"></div><div class="mc-name" data-ar="ناقيتس وبومس" data-de="Nuggets & Poms">ناقيتس وبومس</div></div>
   </div>
 
   <!-- DESSERTS -->
-  <div class="menu-cat-hd">
+  <div class="menu-cat-hd fade-up">
     <div class="mch-line"></div>
-    <span data-ar="التحلية" data-de="Desserts">التحلية</span>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div class="cat-icon">🍮</div>
+      <span data-ar="التحلية" data-de="Desserts">التحلية</span>
+    </div>
     <div class="mch-line"></div>
   </div>
-  <div class="menu-grid" style="max-width:440px;">
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="حلو مشكل" data-de="Gemischte Süßigkeiten">حلو مشكل</div></div>
-    <div class="mc fade-up"><div class="mc-gem mc-gem-tl">◆</div><div class="mc-gem mc-gem-br">◆</div><div class="mc-glow"></div><div class="mc-name" data-ar="فواكه مشكلة" data-de="Gemischte Früchte">فواكه مشكلة</div></div>
+
+  <div class="menu-grid-dessert">
+    <div class="mc fade-up"><div class="mc-num">01</div><div class="mc-bar"></div><div class="mc-name" data-ar="حلويات مشكلة" data-de="Gemischte Süßigkeiten">حلويات مشكلة</div></div>
+    <div class="mc fade-up"><div class="mc-num">02</div><div class="mc-bar"></div><div class="mc-name" data-ar="فواكه مشكلة" data-de="Gemischte Früchte">فواكه مشكلة</div></div>
   </div>
+
 </section>
 
 <!-- CHEF -->
@@ -557,7 +628,7 @@ function bookWhatsApp() {
     ? `*حجز جديد - نايا جولي*\n\nالاسم: ${name}\nعدد الأشخاص: ${count}\nوقت الوصول: ${time}\nالحساب: ${total} يورو\n\n`
     : `*Neue Reservierung - Naya Jouly*\n\nName: ${name}\nPersonen: ${count}\nAnkunftszeit: ${time}\nGesamtbetrag: ${total} Euro\n\nVielen Dank fuer Ihre Reservierung`;
   fbq('track', 'Contact');
-window.open('https://wa.me/4917620666501?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/4917620666501?text=' + encodeURIComponent(msg), '_blank');
 }
 
 const obs = new IntersectionObserver(entries => {
